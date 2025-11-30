@@ -6,7 +6,7 @@ export const MARKETER_INFO_EN: MarketerInfo = {
   title: "Growth Marketing Expert",
   tagline: "I turn traffic into revenue through data-driven strategies.",
   avatarUrl: "https://picsum.photos/200/200", 
-  telegramLink: "https://t.me/username"
+  telegramLink: "https://t.me/mudrrr"
 };
 
 export const MARKETER_INFO_RU: MarketerInfo = {
@@ -14,7 +14,7 @@ export const MARKETER_INFO_RU: MarketerInfo = {
   title: "Эксперт по Growth-маркетингу",
   tagline: "Превращаю трафик в выручку с помощью стратегий на основе данных.",
   avatarUrl: "https://picsum.photos/200/200", 
-  telegramLink: "https://t.me/username"
+  telegramLink: "https://t.me/mudrrr"
 };
 
 // Services
