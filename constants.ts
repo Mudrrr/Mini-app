@@ -1,5 +1,12 @@
 import { CaseStudy, QuizQuestion, Service, MarketerInfo, Translation, Language } from './types';
 
+// --- TELEGRAM CONFIGURATION ---
+// 1. Create a bot via @BotFather and paste the token below.
+// 2. Get your numeric Chat ID via @userinfobot and paste it below.
+export const TELEGRAM_BOT_TOKEN = "8519438678:AAGGK-pFDV7cqSO-yNUxWzI-jDhndVEceEY"; 
+export const TELEGRAM_CHAT_ID = "35608067";
+// ------------------------------
+
 // Shared Info
 export const MARKETER_INFO_EN: MarketerInfo = {
   name: "Andrey M.arketing",

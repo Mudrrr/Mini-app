@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
-import { Send, Check, MessageCircle } from 'lucide-react';
+import { Send, Check, MessageCircle, Loader2 } from 'lucide-react';
 import { getMarketerInfo } from '../constants';
 import { useAppContext } from '../App';
+import { sendTelegramMessage } from '../utils';
 
 export const ContactForm: React.FC = () => {
   const { language, t } = useAppContext();
   const info = getMarketerInfo(language);
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ name: '', details: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate send
-    setTimeout(() => setSent(true), 1000);
+    setLoading(true);
+
+    const message = `
+📩 <b>New Contact Request</b>
+
+👤 <b>Name:</b> ${formData.name}
+📝 <b>Details:</b> ${formData.details}
+    `.trim();
+
+    await sendTelegramMessage(message);
+    
+    setLoading(false);
+    setSent(true);
+    setFormData({ name: '', details: '' });
   };
 
   if (sent) {
@@ -63,6 +78,8 @@ export const ContactForm: React.FC = () => {
           <input 
             required 
             type="text" 
+            value={formData.name}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
             className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-colors" 
             placeholder={language === 'en' ? "John Doe" : "Иван Петров"}
           />
@@ -73,6 +90,8 @@ export const ContactForm: React.FC = () => {
           <textarea 
             required
             rows={4}
+            value={formData.details}
+            onChange={(e) => setFormData({...formData, details: e.target.value})}
             className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none resize-none transition-colors" 
             placeholder={t.contact.detailsPlaceholder}
           />
@@ -80,10 +99,17 @@ export const ContactForm: React.FC = () => {
 
         <button 
           type="submit" 
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all mt-4 shadow-lg shadow-indigo-500/30"
+          disabled={loading}
+          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all mt-4 shadow-lg shadow-indigo-500/30 disabled:opacity-70 disabled:cursor-not-allowed"
         >
-          <span>{t.contact.submitButton}</span>
-          <Send className="w-4 h-4" />
+          {loading ? (
+             <Loader2 className="animate-spin w-5 h-5" />
+          ) : (
+            <>
+              <span>{t.contact.submitButton}</span>
+              <Send className="w-4 h-4" />
+            </>
+          )}
         </button>
       </form>
     </div>

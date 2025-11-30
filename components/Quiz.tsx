@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { getQuizQuestions } from '../constants';
 import { useAppContext } from '../App';
 import { ChevronRight, CheckCircle2, Loader2, ArrowRight } from 'lucide-react';
+import { sendTelegramMessage } from '../utils';
 
 interface QuizProps {
   onComplete: () => void;
@@ -30,16 +31,30 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
     }
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Quiz Results:', { answers, lead: leadData });
-      setIsSubmitting(false);
-      onComplete(); // Navigate to Contact/Success view
-    }, 1500);
+    // Format answers for Telegram message
+    let answersText = '';
+    questions.forEach((q, index) => {
+      answersText += `<b>Q${index + 1}:</b> ${q.question}\n<b>A:</b> ${answers[q.id]}\n\n`;
+    });
+
+    const message = `
+🎯 <b>New Quiz Lead</b>
+
+👤 <b>Name:</b> ${leadData.name}
+📞 <b>Contact:</b> ${leadData.contact}
+
+<b>--- Quiz Answers ---</b>
+${answersText}
+    `.trim();
+
+    await sendTelegramMessage(message);
+
+    setIsSubmitting(false);
+    onComplete(); // Navigate to Contact/Success view
   };
 
   if (leadFormVisible) {
@@ -80,7 +95,7 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-lg shadow-indigo-500/30"
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition-all flex items-center justify-center space-x-2 shadow-lg shadow-indigo-500/30 disabled:opacity-70"
             >
               {isSubmitting ? (
                 <>
