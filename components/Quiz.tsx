@@ -16,7 +16,9 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [leadFormVisible, setLeadFormVisible] = useState(false);
-  const [leadData, setLeadData] = useState({ name: '', contact: '' });
+  
+  // Initialize contact with '@' as requested
+  const [leadData, setLeadData] = useState({ contact: '@' });
 
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
@@ -44,8 +46,7 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
     const message = `
 🎯 <b>New Quiz Lead</b>
 
-👤 <b>Name:</b> ${leadData.name}
-📞 <b>Contact:</b> ${leadData.contact}
+👤 <b>User:</b> ${leadData.contact}
 
 <b>--- Quiz Answers ---</b>
 ${answersText}
@@ -73,23 +74,16 @@ ${answersText}
 
           <form onSubmit={handleLeadSubmit} className="w-full space-y-4">
             <div>
+              <label className="block text-left text-xs font-bold text-slate-500 uppercase mb-1 ml-1">
+                {language === 'en' ? 'Your Telegram' : 'Ваш Telegram'}
+              </label>
               <input
                 required
                 type="text"
-                placeholder={t.quiz.namePlaceholder}
-                value={leadData.name}
-                onChange={(e) => setLeadData({...leadData, name: e.target.value})}
-                className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
-              />
-            </div>
-            <div>
-              <input
-                required
-                type="text"
-                placeholder={t.quiz.contactPlaceholder}
+                placeholder="@username"
                 value={leadData.contact}
-                onChange={(e) => setLeadData({...leadData, contact: e.target.value})}
-                className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+                onChange={(e) => setLeadData({ contact: e.target.value })}
+                className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
               />
             </div>
             <button

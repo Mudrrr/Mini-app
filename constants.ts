@@ -135,9 +135,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       question: 'Question',
       of: 'of',
       almostDone: 'Almost Done!',
-      enterDetails: 'Enter your details below to receive your personalized marketing audit based on your answers.',
+      enterDetails: 'Enter your Telegram username below to receive your personalized audit.',
       namePlaceholder: 'Your Name',
-      contactPlaceholder: 'Telegram Username or Email',
+      contactPlaceholder: '@username',
       analyzing: 'Analyzing...',
       getAudit: 'Get My Audit'
     },
@@ -177,9 +177,9 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       question: 'Вопрос',
       of: 'из',
       almostDone: 'Почти готово!',
-      enterDetails: 'Введите данные, чтобы получить персональный аудит на основе ваших ответов.',
+      enterDetails: 'Введите ваш Telegram, чтобы получить персональный аудит.',
       namePlaceholder: 'Ваше Имя',
-      contactPlaceholder: 'Telegram или Email',
+      contactPlaceholder: '@username',
       analyzing: 'Анализирую...',
       getAudit: 'Получить аудит'
     },

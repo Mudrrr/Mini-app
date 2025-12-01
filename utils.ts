@@ -1,7 +1,7 @@
 import { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } from './constants';
 
 export const sendTelegramMessage = async (text: string): Promise<boolean> => {
-  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID || TELEGRAM_BOT_TOKEN === 'YOUR_BOT_TOKEN_HERE') {
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID || (TELEGRAM_BOT_TOKEN as string) === 'YOUR_BOT_TOKEN_HERE') {
     console.warn("Telegram configuration missing. Please update constants.ts");
     // Simulate success if config is missing (for demo purposes)
     await new Promise(resolve => setTimeout(resolve, 1000));
