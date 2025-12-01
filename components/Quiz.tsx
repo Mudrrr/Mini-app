@@ -9,7 +9,7 @@ interface QuizProps {
 }
 
 export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
-  const { language, t } = useAppContext();
+  const { language, t, startParam } = useAppContext();
   const questions = getQuizQuestions(language);
   
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,10 +43,13 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
       answersText += `<b>Q${index + 1}:</b> ${q.question}\n<b>A:</b> ${answers[q.id]}\n\n`;
     });
 
+    const sourceInfo = startParam ? startParam : 'N/A (Direct)';
+
     const message = `
 🎯 <b>New Quiz Lead</b>
 
 👤 <b>User:</b> ${leadData.contact}
+📢 <b>Source:</b> <code>${sourceInfo}</code>
 
 <b>--- Quiz Answers ---</b>
 ${answersText}

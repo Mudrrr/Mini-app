@@ -17,6 +17,7 @@ interface AppContextType {
   t: Translation;
   currentView: AppView;
   setCurrentView: (view: AppView) => void;
+  startParam: string | null; // Added traffic source tracking
 }
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -32,6 +33,7 @@ export default function App() {
   const [currentView, setCurrentView] = useState<AppView>(AppView.HOME);
   const [language, setLanguage] = useState<Language>('ru');
   const [theme, setTheme] = useState<Theme>('dark');
+  const [startParam, setStartParam] = useState<string | null>(null);
 
   // Handle Theme Side Effects
   useEffect(() => {
@@ -43,13 +45,41 @@ export default function App() {
     }
   }, [theme]);
 
+  // Handle Telegram WebApp Initialization & Start Param Extraction
+  useEffect(() => {
+    // Check for Telegram WebApp environment
+    const tg = (window as any).Telegram?.WebApp;
+    
+    if (tg) {
+      tg.ready();
+      // Try to get start_param from Telegram init data
+      // Usage: t.me/botname/appname?startapp=campaign_123
+      const param = tg.initDataUnsafe?.start_param;
+      if (param) {
+        setStartParam(param);
+        console.log("Captured Telegram Start Param:", param);
+      }
+    }
+
+    // Fallback: Check standard URL parameters (useful for web debugging or direct links)
+    const urlParams = new URLSearchParams(window.location.search);
+    // Telegram sometimes passes it as tgWebAppStartParam in the URL query
+    const webParam = urlParams.get('tgWebAppStartParam') || urlParams.get('startapp');
+    
+    if (webParam && !startParam) {
+      setStartParam(webParam);
+      console.log("Captured Web URL Param:", webParam);
+    }
+  }, []);
+
   const t = TRANSLATIONS[language];
 
   const contextValue: AppContextType = {
     language, setLanguage,
     theme, setTheme,
     t,
-    currentView, setCurrentView
+    currentView, setCurrentView,
+    startParam
   };
 
   const renderView = () => {

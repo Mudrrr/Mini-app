@@ -5,7 +5,7 @@ import { useAppContext } from '../App';
 import { sendTelegramMessage } from '../utils';
 
 export const ContactForm: React.FC = () => {
-  const { language, t } = useAppContext();
+  const { language, t, startParam } = useAppContext();
   const info = getMarketerInfo(language);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -15,10 +15,13 @@ export const ContactForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
 
+    const sourceInfo = startParam ? startParam : 'N/A (Direct)';
+
     const message = `
 📩 <b>New Contact Request</b>
 
 👤 <b>Name:</b> ${formData.name}
+📢 <b>Source:</b> <code>${sourceInfo}</code>
 📝 <b>Details:</b> ${formData.details}
     `.trim();
 
