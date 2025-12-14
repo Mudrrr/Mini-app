@@ -13,7 +13,7 @@ export interface CaseStudy {
   title: string;
   niche: string;
   description: string;
-  fullStory?: string; // New field for detailed view
+  fullStory?: string;
   metrics: {
     label: string;
     value: string;
@@ -22,10 +22,14 @@ export interface CaseStudy {
   imageUrl: string;
 }
 
+export type QuizQuestionType = 'select' | 'text' | 'select-with-text';
+
 export interface QuizQuestion {
   id: number;
+  type: QuizQuestionType;
   question: string;
-  options: string[];
+  options?: string[]; // For 'select' and 'select-with-text'
+  placeholder?: string; // For 'text' and 'select-with-text' input field
 }
 
 export interface QuizResult {
@@ -33,6 +37,7 @@ export interface QuizResult {
   leadInfo?: {
     name: string;
     contact: string;
+    method: 'telegram' | 'whatsapp' | 'phone';
   };
 }
 
@@ -82,7 +87,10 @@ export interface Translation {
     namePlaceholder: string;
     contactPlaceholder: string;
     analyzing: string;
-    getAudit: string;
+    getAudit: string; // Used as "Sign up" now
+    next: string;
+    orWrite: string;
+    selectMethod: string;
   };
   contact: {
     title: string;

@@ -142,19 +142,61 @@ export const CASES_RU: CaseStudy[] = [
   }
 ];
 
-// Quiz
+// Quiz Questions
 export const QUIZ_QUESTIONS_EN: QuizQuestion[] = [
-  { id: 1, question: "What is your current monthly advertising budget?", options: ["Under $1,000", "$1,000 - $5,000", "$5,000 - $10,000", "$10,000+"] },
-  { id: 2, question: "What is your main marketing challenge right now?", options: ["High Cost per Lead", "Low Conversion Rate", "Scaling Volume", "Tracking Attribution"] },
-  { id: 3, question: "Do you currently have a CRM system in place?", options: ["Yes, fully set up", "Yes, but not used well", "No, we use spreadsheets", "No system"] },
-  { id: 4, question: "How quickly are you looking to scale?", options: ["Immediately", "Next 1-2 months", "Just researching", "Steady growth is fine"] }
+  { 
+    id: 1, 
+    type: 'select',
+    question: "What niche do you work in?", 
+    options: ["Real Estate", "E-commerce", "Construction & Repair", "Auto & Transport", "Food & Drinks", "Health & Beauty", "Education", "Marketing", "Services", "B2B"] 
+  },
+  { 
+    id: 2, 
+    type: 'text',
+    question: "What does your business do?", 
+    placeholder: "e.g. Selling luxury villas in Bali..." 
+  },
+  { 
+    id: 3, 
+    type: 'select-with-text',
+    question: "What is your main marketing challenge?", 
+    options: ["High Cost per Lead", "Low Conversion Rate", "Scaling Volume", "Tracking Attribution"],
+    placeholder: "Or describe your challenge..."
+  },
+  { 
+    id: 4, 
+    type: 'select',
+    question: "Do you currently have a CRM system in place?", 
+    options: ["Yes, fully set up", "Yes, but not used well", "No, we use spreadsheets", "No system"] 
+  }
 ];
 
 export const QUIZ_QUESTIONS_RU: QuizQuestion[] = [
-  { id: 1, question: "Какой у вас текущий рекламный бюджет в месяц?", options: ["До $1,000", "$1,000 - $5,000", "$5,000 - $10,000", "$10,000+"] },
-  { id: 2, question: "Какая главная проблема в маркетинге сейчас?", options: ["Дорогой лид", "Низкая конверсия", "Сложно масштабировать", "Нет аналитики"] },
-  { id: 3, question: "Используете ли вы CRM систему?", options: ["Да, настроена", "Да, но используем плохо", "Нет, таблицы Excel", "Нет системы"] },
-  { id: 4, question: "Как быстро планируете масштабироваться?", options: ["Срочно", "В ближайшие 1-2 мес", "Только изучаю", "Плавный рост"] }
+  { 
+    id: 1, 
+    type: 'select',
+    question: "В какой нише вы работаете?", 
+    options: ["Недвижимость", "Онлайн-торговля", "Строительство и ремонт", "Авто и транспорт", "Еда и напитки", "Здоровье и красота", "Образование и обучение", "Маркетинг", "Услуги", "B2B"] 
+  },
+  { 
+    id: 2, 
+    type: 'text',
+    question: "Чем занимается ваш бизнес?", 
+    placeholder: "Например: Продажа новостроек на Пхукете..." 
+  },
+  { 
+    id: 3, 
+    type: 'select-with-text',
+    question: "Какая главная проблема в маркетинге сейчас?", 
+    options: ["Дорогой лид", "Низкая конверсия", "Сложно масштабировать", "Нет аналитики"],
+    placeholder: "Или напишите свой вариант..."
+  },
+  { 
+    id: 4, 
+    type: 'select',
+    question: "Используете ли вы CRM систему?", 
+    options: ["Да, настроена", "Да, но используем плохо", "Нет, таблицы Excel", "Нет системы"] 
+  }
 ];
 
 // Translations Dictionary
@@ -181,11 +223,14 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       question: 'Question',
       of: 'of',
       almostDone: 'Almost Done!',
-      enterDetails: 'Enter your Telegram username below to receive your personalized audit.',
+      enterDetails: 'Choose how to contact you:',
       namePlaceholder: 'Your Name',
-      contactPlaceholder: '@username',
-      analyzing: 'Analyzing...',
-      getAudit: 'Get My Audit'
+      contactPlaceholder: '@username or phone',
+      analyzing: 'Sending...',
+      getAudit: 'Sign up for consultation',
+      next: 'Next',
+      orWrite: 'OR Write your own:',
+      selectMethod: 'Preferred contact method'
     },
     contact: {
       title: "Let's Talk",
@@ -223,11 +268,14 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       question: 'Вопрос',
       of: 'из',
       almostDone: 'Почти готово!',
-      enterDetails: 'Введите ваш Telegram, чтобы получить персональный аудит.',
+      enterDetails: 'Выберите, куда вам написать:',
       namePlaceholder: 'Ваше Имя',
-      contactPlaceholder: '@username',
-      analyzing: 'Анализирую...',
-      getAudit: 'Получить аудит'
+      contactPlaceholder: 'Ваш контакт',
+      analyzing: 'Отправка...',
+      getAudit: 'Записаться на консультацию',
+      next: 'Далее',
+      orWrite: 'ИЛИ напишите свой вариант:',
+      selectMethod: 'Удобный способ связи'
     },
     contact: {
       title: "Давайте обсудим",
