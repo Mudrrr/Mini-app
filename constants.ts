@@ -205,11 +205,11 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     nav: { home: 'Главная', cases: 'Кейсы', quiz: 'Квиз', contact: 'Контакты' },
     hero: {
       status: 'ОТКРЫТ',
-      startAudit: 'Начать аудит',
+      startAudit: 'Пройти опрос',
       expertise: 'Моя экспертиза',
       workWithMe: 'Сотрудничество',
       auditTitle: 'Ваш маркетинг оптимизирован?',
-      auditDesc: 'Пройдите аудит за 30 секунд и найдите точки роста выручки.'
+      auditDesc: 'Пройдите опрос за 30 сек, расскажите какая сейчас потребность и я помогу.'
     },
     cases: {
       title: 'Истории успеха',
