@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { getQuizQuestions } from '../constants';
 import { useAppContext } from '../App';
-import { ChevronRight, CheckCircle2, Loader2, ArrowRight, MessageCircle, Phone, Send } from 'lucide-react';
+import { ChevronRight, CheckCircle2, Loader2, ArrowRight, MessageCircle, Phone, Send, ArrowLeft } from 'lucide-react';
 import { sendTelegramMessage } from '../utils';
 
 interface QuizProps {
@@ -41,6 +41,21 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
       setCurrentIndex(prev => prev + 1);
     } else {
       setLeadFormVisible(true);
+    }
+  };
+
+  const handleBack = () => {
+    if (leadFormVisible) {
+      setLeadFormVisible(false);
+      return;
+    }
+
+    if (currentIndex > 0) {
+      const prevIndex = currentIndex - 1;
+      setCurrentIndex(prevIndex);
+      
+      // Optional: Restore text if needed, currently we just clear to prevent carry-over
+      setInputText(''); 
     }
   };
 
@@ -180,8 +195,16 @@ ${answersText}
 
   if (leadFormVisible) {
     return (
-      <div className="flex flex-col h-full p-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-24">
-        <div className="flex-1 flex flex-col justify-center items-center text-center space-y-8">
+      <div className="flex flex-col h-full p-6 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-24 relative">
+        {/* Back Button for Form */}
+        <button 
+          onClick={handleBack}
+          className="absolute top-6 left-6 p-2 -ml-2 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+        >
+          <ArrowLeft className="w-6 h-6" />
+        </button>
+
+        <div className="flex-1 flex flex-col justify-center items-center text-center space-y-8 mt-8">
           
           <div className="space-y-2">
             <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{t.quiz.almostDone}</h2>
@@ -276,6 +299,18 @@ ${answersText}
 
   return (
     <div className="flex flex-col h-full p-6 pb-24">
+      {/* Header logic for back button */}
+      <div className="flex items-center mb-6 h-8 relative">
+        {currentIndex > 0 && (
+          <button 
+            onClick={handleBack}
+            className="absolute left-0 top-1/2 -translate-y-1/2 p-2 -ml-2 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          >
+            <ArrowLeft className="w-6 h-6" />
+          </button>
+        )}
+      </div>
+
       {/* Progress Bar */}
       <div className="w-full bg-slate-200 dark:bg-slate-800 h-2 rounded-full mb-8 overflow-hidden">
         <div 
