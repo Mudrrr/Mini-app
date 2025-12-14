@@ -26,19 +26,51 @@ export const MARKETER_INFO_RU: MarketerInfo = {
 
 // Services
 export const SERVICES_EN: Service[] = [
-  { id: '1', title: 'Traffic Acquisition', description: 'Targeted ads on Telegram & Facebook to bring high-quality leads.', iconName: 'Target' },
-  { id: '2', title: 'Funnel Building', description: 'Automated sales funnels that convert cold traffic into loyal clients.', iconName: 'Zap' },
-  { id: '3', title: 'Analytics & Strategy', description: 'Deep dive into metrics to optimize ROI and CAC.', iconName: 'BarChart3' }
+  { 
+    id: '1', 
+    title: 'Yandex Direct', 
+    description: 'Managed 50M+ RUB ad budget. $2M+ real estate sales in Phuket. Legal entity, contract work. 7 years working with long-term clients.', 
+    iconName: 'Target' 
+  },
+  { 
+    id: '2', 
+    title: 'Quizzes (Marquiz)', 
+    description: 'Marquiz.ru expert. 150+ quizzes (Tatneft, FitStars, Like Center). Recent case: 955 job applications at 415₽. Cost per hire 7500₽.', 
+    iconName: 'Zap' 
+  }
 ];
 
 export const SERVICES_RU: Service[] = [
-  { id: '1', title: 'Закупка трафика', description: 'Таргетированная реклама в Telegram и Facebook для привлечения качественных лидов.', iconName: 'Target' },
-  { id: '2', title: 'Построение воронок', description: 'Автоматические воронки продаж, конвертирующие холодный трафик в клиентов.', iconName: 'Zap' },
-  { id: '3', title: 'Аналитика и стратегия', description: 'Глубокий анализ метрик для оптимизации ROI и CAC.', iconName: 'BarChart3' }
+  { 
+    id: '1', 
+    title: 'Яндекс Директ', 
+    description: 'Открутил 50+ млн ₽ рекламного бюджета. $2М+ продаж недвижимости на Пхукете. ИП, работа по договору. 7 лет работы с постоянными клиентами.', 
+    iconName: 'Target' 
+  },
+  { 
+    id: '2', 
+    title: 'Квизы (Marquiz)', 
+    description: 'Эксперт платформы Marquiz.ru. 150+ квизов для Татнефти, FitStars, Лайк Центр. Последний кейс: 955 откликов на вахту по 415₽. Выход на вахту 7500₽.', 
+    iconName: 'Zap' 
+  }
 ];
 
 // Cases
 export const CASES_EN: CaseStudy[] = [
+  {
+    id: '4',
+    title: 'Staffing: Shift Work',
+    niche: 'HR / Recruitment',
+    description: '955 applications at 415 ₽. Reduced lead cost 3.3x via segmentation.',
+    fullStory: "Niche: Outstaffing. Landing pages: Quizzes.\n\nHow did we lower the lead cost by 3.3 times?\n\nWe stopped driving all traffic to a single quiz and segmented the audience instead. This allowed us to get leads 3.3 times cheaper with the same ad campaign settings.\n\nBefore: 1,339 ₽ per lead\nAfter: 415 ₽ per lead\n\nCost per hire: 7,500 RUB.",
+    metrics: [
+      { label: 'Apps', value: '955', trend: 'up' },
+      { label: 'CPL', value: '415 ₽', trend: 'down' },
+      { label: 'Cost/Hire', value: '7500 ₽', trend: 'down' },
+      { label: 'Old CPL', value: '1339 ₽', trend: 'down' }
+    ],
+    imageUrl: "https://picsum.photos/600/300?random=24"
+  },
   {
     id: '1', 
     title: 'Phuket Real Estate', 
@@ -68,6 +100,20 @@ export const CASES_EN: CaseStudy[] = [
 ];
 
 export const CASES_RU: CaseStudy[] = [
+  {
+    id: '4',
+    title: 'Аутстаффинг: Вахта',
+    niche: 'HR / Найм',
+    description: '955 откликов по 415 ₽. Снизили стоимость лида в 3,3 раза через сегментацию.',
+    fullStory: "Ниша: аутстаффинг. Посадочные страницы: квизы.\n\nКак мы снизили стоимость лида в 3,3 раза?\n\nПерестали загонять всех в один квиз и сегментировали аудиторию. Так мы получили лид в 3,3 раза дешевле при тех же настройках в рекламной кампании.\n\nБыло: 1 339 ₽ за заявку\nСтало: 415 ₽ за заявку\n\nВыход на вахту: 7500 рублей.",
+    metrics: [
+      { label: 'Отклики', value: '955', trend: 'up' },
+      { label: 'Цена лида', value: '415 ₽', trend: 'down' },
+      { label: 'Выход', value: '7500 ₽', trend: 'down' }, 
+      { label: 'Было', value: '1339 ₽', trend: 'down' }
+    ],
+    imageUrl: "https://picsum.photos/600/300?random=24"
+  },
   {
     id: '1', 
     title: 'Недвижимость Пхукет', 
