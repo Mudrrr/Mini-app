@@ -70,6 +70,20 @@ export const SERVICES_RU: Service[] = [
 // Cases
 export const CASES_EN: CaseStudy[] = [
   {
+    id: '5',
+    title: 'Phuket Real Estate',
+    niche: 'Real Estate / Lead Gen',
+    description: '309 leads. $2M in sales. Replaced ineffective site with Quiz + Auto-funnel.',
+    fullStory: "The agency sells property in Phuket. Instead of an ineffective website, we launched a quiz with a warming auto-funnel to drive leads to viewings.\n\nTraffic was driven from context ads to relevant quizzes. The quiz had 4 questions: purchase goal, budget, area, and bonus choice (flight, yacht, or cashback), followed by a messenger form.\n\nLeads from the quiz went to amoCRM, triggering a WhatsApp bot: the bot immediately sent a PDF selection and offered a viewing 10 minutes later.\n\nResult: 309 conversions from Yandex Direct at ~4,265 RUB and $2M in property sales. The Quiz + Funnel combo was key.",
+    metrics: [
+      { label: 'Leads', value: '309', trend: 'up' },
+      { label: 'Sales', value: '$2M', trend: 'up' },
+      { label: 'CPL', value: '4265 ₽', trend: 'down' },
+      { label: 'CR', value: '1.4%', trend: 'up' }
+    ],
+    imageUrl: "https://picsum.photos/600/300?random=50"
+  },
+  {
     id: '4',
     title: 'Staffing: Shift Work',
     niche: 'HR / Recruitment',
@@ -85,7 +99,7 @@ export const CASES_EN: CaseStudy[] = [
   },
   {
     id: '1', 
-    title: 'Phuket Real Estate', 
+    title: 'Phuket TG Channel Ads', 
     niche: 'Real Estate',
     description: 'Acquired 234 targeted subscribers at ~$5. Targeted investors and expats via Telegram Ads.',
     fullStory: "The agency approached us with an existing Telegram channel (420 subscribers). The goal was to attract investors and property buyers in Phuket.\n\nStrategy: We utilized official Telegram Ads, targeting competitor channels and business/investment interest groups.\n\nResult: The channel grew to 750 subscribers. We acquired 234 direct subscribers from ads at ~$5 CPA. Over 100 people downloaded the lead magnet, entering the sales funnel.",
@@ -113,6 +127,20 @@ export const CASES_EN: CaseStudy[] = [
 
 export const CASES_RU: CaseStudy[] = [
   {
+    id: '5',
+    title: 'Недвижимость Пхукет',
+    niche: 'Недвижимость / Лидогенерация',
+    description: '309 заявок. Продаж на $2 млн.',
+    fullStory: "Агентство продаёт недвижимость на Пхукете и вместо неэффективного сайта запустило квиз с автоворонкой догрева, чтобы вести лидов на просмотры объектов.\n\nТрафик вели с контекстной рекламы на несколько релевантных квизов. В квизе 4 вопроса: цель покупки, бюджет, район и выбор бонуса (перелёт с трансфером, яхта или кешбэк), затем форма с мессенджером.\n\nЛид с квиза попадал в amoCRM, где триггер запускал бота в WhatsApp: бот сразу отправлял PDF‑подборку и через 10 минут предлагал записаться на просмотр.\n\nЗа сезон получено 309 конверсий из Яндекс Директ по ~4 265 ₽ и продано объектов на 2 млн долларов. Именно связка квиз + автоворонка догрева дала просмотры и продажи в дорогой нише недвижимости.",
+    metrics: [
+      { label: 'Заявки', value: '309', trend: 'up' },
+      { label: 'Продажи', value: '$2M', trend: 'up' },
+      { label: 'Цена заявки', value: '4265 ₽', trend: 'down' },
+      { label: 'Конверсия', value: '1,4%', trend: 'up' }
+    ],
+    imageUrl: "https://picsum.photos/600/300?random=50"
+  },
+  {
     id: '4',
     title: 'Аутстаффинг: Вахта',
     niche: 'HR / Найм',
@@ -128,7 +156,7 @@ export const CASES_RU: CaseStudy[] = [
   },
   {
     id: '1', 
-    title: 'Недвижимость Пхукет', 
+    title: 'Реклама TG канала Пхукет', 
     niche: 'Недвижимость',
     description: 'Привлекли 234 целевых подписчика по 471₽. Охват инвесторов и экспатов.',
     fullStory: "Агентство недвижимости пришло с готовым Telegram-каналом (420 подписчиков). Цель: Привлечение инвесторов и покупателей недвижимости на Пхукете.\n\nСтратегия: Использование официальной рекламы Telegram Ads с таргетингом на каналы конкурентов, каналы про инвестиции и бизнес.\n\nРезультат: В канале уже 750 подписчиков. С рекламы получено 234 подписчика по цене 471,8 ₽ (с НДС). Более 100 человек скачали лид-магнит, попав в воронку прогрева.",
