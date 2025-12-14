@@ -34,9 +34,15 @@ export const SERVICES_EN: Service[] = [
   },
   { 
     id: '2', 
-    title: 'Quizzes (Marquiz)', 
+    title: 'Quizzes', 
     description: 'Marquiz.ru expert. 150+ quizzes (Tatneft, FitStars, Like Center). Recent case: 955 job applications at 415₽. Cost per hire 7500₽.', 
     iconName: 'Zap' 
+  },
+  {
+    id: '3',
+    title: 'Telegram Mini-App',
+    description: 'Custom Mini-Apps for Telegram Ads and channel pinned messages to boost engagement and retention.',
+    iconName: 'Smartphone'
   }
 ];
 
@@ -49,9 +55,15 @@ export const SERVICES_RU: Service[] = [
   },
   { 
     id: '2', 
-    title: 'Квизы (Marquiz)', 
+    title: 'Квизы', 
     description: 'Эксперт платформы Marquiz.ru. 150+ квизов для Татнефти, FitStars, Лайк Центр. Последний кейс: 955 откликов на вахту по 415₽. Выход на вахту 7500₽.', 
     iconName: 'Zap' 
+  },
+  {
+    id: '3',
+    title: 'Telegram Mini-App',
+    description: 'Mini-app приложения для Telegram для рекламы в TG-Ads и закрепа в канале.',
+    iconName: 'Smartphone'
   }
 ];
 

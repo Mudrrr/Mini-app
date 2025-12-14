@@ -2,12 +2,12 @@ import React from 'react';
 import { AppView, Service } from '../types';
 import { getMarketerInfo, getServices } from '../constants';
 import { useAppContext } from '../App';
-import { Target, Zap, BarChart3, ChevronRight, Star } from 'lucide-react';
+import { Target, Zap, BarChart3, ChevronRight, Star, Smartphone } from 'lucide-react';
 
 // Helper to render icons dynamically
 const IconRenderer = ({ name, className }: { name: string, className: string }) => {
   const icons: Record<string, React.ElementType> = {
-    Target, Zap, BarChart3
+    Target, Zap, BarChart3, Smartphone
   };
   const Icon = icons[name] || Star;
   return <Icon className={className} />;
