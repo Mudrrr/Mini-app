@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { getQuizQuestions } from '../constants';
 import { useAppContext } from '../App';
 import { ChevronRight, CheckCircle2, Loader2, ArrowRight, MessageCircle, Phone, Send, ArrowLeft, ExternalLink, Briefcase } from 'lucide-react';
@@ -11,7 +11,7 @@ interface QuizProps {
 type ContactMethod = 'telegram' | 'whatsapp' | 'phone';
 
 export const Quiz: React.FC<QuizProps> = ({ onViewCases }) => {
-  const { language, t, startParam } = useAppContext();
+  const { language, t, startParam, username } = useAppContext();
   const questions = getQuizQuestions(language);
   
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,6 +28,13 @@ export const Quiz: React.FC<QuizProps> = ({ onViewCases }) => {
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Auto-fill username if available when form opens and method is telegram
+  useEffect(() => {
+    if (leadFormVisible && contactMethod === 'telegram' && username && !contactValue) {
+      setContactValue(`@${username}`);
+    }
+  }, [leadFormVisible, contactMethod, username]);
 
   // --- Handlers ---
 

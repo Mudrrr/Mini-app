@@ -104,6 +104,7 @@ export interface Translation {
     dmButton: string;
     or: string;
     nameLabel: string;
+    telegramLabel: string; // New field
     detailsLabel: string;
     detailsPlaceholder: string;
     submitButton: string;

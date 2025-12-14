@@ -18,6 +18,7 @@ interface AppContextType {
   currentView: AppView;
   setCurrentView: (view: AppView) => void;
   startParam: string | null; // Added traffic source tracking
+  username: string | null; // Added Telegram Username
 }
 
 export const AppContext = createContext<AppContextType | null>(null);
@@ -34,6 +35,7 @@ export default function App() {
   const [language, setLanguage] = useState<Language>('ru');
   const [theme, setTheme] = useState<Theme>('dark');
   const [startParam, setStartParam] = useState<string | null>(null);
+  const [username, setUsername] = useState<string | null>(null);
 
   // Handle Theme Side Effects
   useEffect(() => {
@@ -52,12 +54,23 @@ export default function App() {
     
     if (tg) {
       tg.ready();
+      
+      // Expand to full height if possible (optional but good for UX)
+      try { tg.expand(); } catch (e) {}
+
       // Try to get start_param from Telegram init data
       // Usage: t.me/botname/appname?startapp=campaign_123
       const param = tg.initDataUnsafe?.start_param;
       if (param) {
         setStartParam(param);
         console.log("Captured Telegram Start Param:", param);
+      }
+
+      // Capture Username
+      const user = tg.initDataUnsafe?.user;
+      if (user?.username) {
+        setUsername(user.username);
+        console.log("Captured Telegram Username:", user.username);
       }
     }
 
@@ -79,7 +92,8 @@ export default function App() {
     theme, setTheme,
     t,
     currentView, setCurrentView,
-    startParam
+    startParam,
+    username
   };
 
   const renderView = () => {

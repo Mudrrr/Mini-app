@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Send, Check, MessageCircle, Loader2 } from 'lucide-react';
 import { getMarketerInfo } from '../constants';
 import { useAppContext } from '../App';
 import { sendTelegramMessage } from '../utils';
 
 export const ContactForm: React.FC = () => {
-  const { language, t, startParam } = useAppContext();
+  const { language, t, startParam, username } = useAppContext();
   const info = getMarketerInfo(language);
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({ name: '', details: '' });
+  const [formData, setFormData] = useState({ name: '', telegram: '', details: '' });
+
+  // Auto-fill Telegram username
+  useEffect(() => {
+    if (username && !formData.telegram) {
+      setFormData(prev => ({ ...prev, telegram: `@${username}` }));
+    }
+  }, [username]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,6 +28,7 @@ export const ContactForm: React.FC = () => {
 📩 <b>New Contact Request</b>
 
 👤 <b>Name:</b> ${formData.name}
+✈️ <b>Telegram:</b> ${formData.telegram}
 📢 <b>Source:</b> <code>${sourceInfo}</code>
 📝 <b>Details:</b> ${formData.details}
     `.trim();
@@ -29,7 +37,7 @@ export const ContactForm: React.FC = () => {
     
     setLoading(false);
     setSent(true);
-    setFormData({ name: '', details: '' });
+    setFormData({ name: '', telegram: username ? `@${username}` : '', details: '' });
   };
 
   if (sent) {
@@ -85,6 +93,18 @@ export const ContactForm: React.FC = () => {
             onChange={(e) => setFormData({...formData, name: e.target.value})}
             className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-colors" 
             placeholder={language === 'en' ? "John Doe" : "Иван Петров"}
+          />
+        </div>
+
+        <div className="space-y-1">
+          <label className="text-xs font-bold text-slate-500 uppercase">{t.contact.telegramLabel}</label>
+          <input 
+            required 
+            type="text" 
+            value={formData.telegram}
+            onChange={(e) => setFormData({...formData, telegram: e.target.value})}
+            className="w-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none transition-colors" 
+            placeholder="@username"
           />
         </div>
         
