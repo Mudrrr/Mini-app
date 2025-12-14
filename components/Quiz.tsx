@@ -1,16 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { getQuizQuestions } from '../constants';
 import { useAppContext } from '../App';
-import { ChevronRight, CheckCircle2, Loader2, ArrowRight, MessageCircle, Phone, Send, ArrowLeft } from 'lucide-react';
+import { ChevronRight, CheckCircle2, Loader2, ArrowRight, MessageCircle, Phone, Send, ArrowLeft, ExternalLink, Briefcase } from 'lucide-react';
 import { sendTelegramMessage } from '../utils';
 
 interface QuizProps {
-  onComplete: () => void;
+  onViewCases: () => void;
 }
 
 type ContactMethod = 'telegram' | 'whatsapp' | 'phone';
 
-export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
+export const Quiz: React.FC<QuizProps> = ({ onViewCases }) => {
   const { language, t, startParam } = useAppContext();
   const questions = getQuizQuestions(language);
   
@@ -19,6 +19,7 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
   const [inputText, setInputText] = useState(''); // Temp state for text inputs
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [leadFormVisible, setLeadFormVisible] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   
   // Lead Data State
   const [contactMethod, setContactMethod] = useState<ContactMethod>('telegram');
@@ -45,6 +46,8 @@ export const Quiz: React.FC<QuizProps> = ({ onComplete }) => {
   };
 
   const handleBack = () => {
+    if (isSuccess) return; // Cannot go back from success screen
+
     if (leadFormVisible) {
       setLeadFormVisible(false);
       return;
@@ -97,7 +100,7 @@ ${answersText}
     await sendTelegramMessage(message);
 
     setIsSubmitting(false);
-    onComplete(); 
+    setIsSuccess(true);
   };
 
   // --- Render Functions ---
@@ -190,6 +193,46 @@ ${answersText}
         return null;
     }
   };
+
+  // --- Success / Thank You View ---
+
+  if (isSuccess) {
+    return (
+      <div className="flex flex-col h-full p-6 animate-in fade-in slide-in-from-bottom-4 duration-500 justify-center items-center text-center pb-24">
+        <div className="w-24 h-24 bg-green-100 dark:bg-green-500/20 rounded-full flex items-center justify-center mb-6">
+          <CheckCircle2 className="w-12 h-12 text-green-600 dark:text-green-500" />
+        </div>
+        
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t.quiz.successTitle}</h2>
+        <p className="text-slate-500 dark:text-slate-400 mb-2 leading-relaxed">
+          {t.quiz.successDesc}
+        </p>
+        <p className="text-indigo-600 dark:text-indigo-400 font-medium mb-8">
+          {t.quiz.myTelegram}
+        </p>
+
+        <div className="w-full space-y-3">
+          <a
+            href="https://t.me/+h_TlMMS6OgUyZDQy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#229ED9] hover:bg-[#1e8dbf] text-white p-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all shadow-lg shadow-blue-500/30"
+          >
+            <span>{t.quiz.subscribeChannel}</span>
+            <ExternalLink className="w-5 h-5" />
+          </a>
+
+          <button
+            onClick={onViewCases}
+            className="w-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white p-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all border border-slate-200 dark:border-slate-700"
+          >
+             <span>{t.quiz.viewCases}</span>
+             <Briefcase className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   // --- Final Form View ---
 

@@ -230,7 +230,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       getAudit: 'Sign up for consultation',
       next: 'Next',
       orWrite: 'OR Write your own:',
-      selectMethod: 'Preferred contact method'
+      selectMethod: 'Preferred contact method',
+      successTitle: 'Thank You!',
+      successDesc: 'I will contact you within a few hours during business hours.',
+      myTelegram: 'My Telegram → @mudrrr',
+      subscribeChannel: 'Subscribe to channel',
+      viewCases: 'View Cases'
     },
     contact: {
       title: "Let's Talk",
@@ -275,7 +280,12 @@ export const TRANSLATIONS: Record<Language, Translation> = {
       getAudit: 'Записаться на консультацию',
       next: 'Далее',
       orWrite: 'ИЛИ напишите свой вариант:',
-      selectMethod: 'Удобный способ связи'
+      selectMethod: 'Удобный способ связи',
+      successTitle: 'Спасибо!',
+      successDesc: 'Я свяжусь с вами в течение нескольких часов в рабочее время.',
+      myTelegram: 'Мой Telegram → @mudrrr',
+      subscribeChannel: 'Подписаться на канал',
+      viewCases: 'Смотреть кейсы'
     },
     contact: {
       title: "Давайте обсудим",

@@ -91,6 +91,12 @@ export interface Translation {
     next: string;
     orWrite: string;
     selectMethod: string;
+    // Success Page
+    successTitle: string;
+    successDesc: string;
+    myTelegram: string;
+    subscribeChannel: string;
+    viewCases: string;
   };
   contact: {
     title: string;

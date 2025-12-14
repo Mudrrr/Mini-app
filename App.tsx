@@ -86,7 +86,7 @@ export default function App() {
     switch (currentView) {
       case AppView.HOME: return <Hero />;
       case AppView.CASES: return <Cases />;
-      case AppView.QUIZ: return <Quiz onComplete={() => setCurrentView(AppView.CONTACT)} />;
+      case AppView.QUIZ: return <Quiz onViewCases={() => setCurrentView(AppView.CASES)} />;
       case AppView.CONTACT: return <ContactForm />;
       default: return <Hero />;
     }
