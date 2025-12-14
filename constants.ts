@@ -12,7 +12,7 @@ export const MARKETER_INFO_EN: MarketerInfo = {
   name: "Andrey M.arketing",
   title: "Growth Marketing Expert",
   tagline: "I turn traffic into revenue through data-driven strategies.",
-  avatarUrl: "https://picsum.photos/200/200", 
+  avatarUrl: "https://ibb.co/4n5YDCqq", 
   telegramLink: "https://t.me/mudrrr"
 };
 
@@ -20,7 +20,7 @@ export const MARKETER_INFO_RU: MarketerInfo = {
   name: "Андрей Маркетинг",
   title: "Эксперт по Growth-маркетингу",
   tagline: "Превращаю трафик в выручку с помощью стратегий на основе данных.",
-  avatarUrl: "https://picsum.photos/200/200", 
+  avatarUrl: "https://ibb.co/4n5YDCqq", 
   telegramLink: "https://t.me/mudrrr"
 };
 
