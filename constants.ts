@@ -109,7 +109,7 @@ export const CASES_EN: CaseStudy[] = [
       { label: 'CPA', value: '$5.1', trend: 'down' },
       { label: 'Leads', value: '100+', trend: 'up' }
     ],
-    imageUrl: "https://i.ibb.co/xt2mKSHm/image.png"
+    imageUrl: "https://i.ibb.co/67Hy2SZf/image.jpg"
   }
 ];
 
@@ -154,7 +154,7 @@ export const CASES_RU: CaseStudy[] = [
       { label: 'Цена ПДП', value: '471,8 ₽', trend: 'down' },
       { label: 'Лид-магнит', value: '100+', trend: 'up' }
     ],
-    imageUrl: "https://i.ibb.co/xt2mKSHm/image.png"
+    imageUrl: "https://i.ibb.co/67Hy2SZf/image.jpg"
   }
 ];
 
