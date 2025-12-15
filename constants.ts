@@ -166,7 +166,7 @@ export const CASES_RU: CaseStudy[] = [
       { label: 'Цена ПДП', value: '471,8 ₽', trend: 'down' },
       { label: 'Лид-магнит', value: '100+', trend: 'up' }
     ],
-    imageUrl: "https://picsum.photos/600/300?random=10"
+    imageUrl: "https://i.ibb.co/xt2mKSHm/image.png"
   },
   {
     id: '2', title: 'Масштабирование E-com', niche: 'Fashion',
