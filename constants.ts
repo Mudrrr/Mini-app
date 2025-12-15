@@ -109,19 +109,7 @@ export const CASES_EN: CaseStudy[] = [
       { label: 'CPA', value: '$5.1', trend: 'down' },
       { label: 'Leads', value: '100+', trend: 'up' }
     ],
-    imageUrl: "https://picsum.photos/600/300?random=10"
-  },
-  {
-    id: '2', title: 'E-commerce Scaling', niche: 'Fashion',
-    description: 'Scaled a local clothing brand to $50k/mo revenue using Telegram Ads.',
-    metrics: [{ label: 'ROAS', value: '450%', trend: 'up' }, { label: 'Leads', value: '1,200+', trend: 'up' }],
-    imageUrl: "https://picsum.photos/600/300?random=1"
-  },
-  {
-    id: '3', title: 'EdTech Course Launch', niche: 'Education',
-    description: 'Launch strategy for a Python programming course.',
-    metrics: [{ label: 'Revenue', value: '$120k', trend: 'up' }, { label: 'CAC', value: '$15', trend: 'down' }],
-    imageUrl: "https://picsum.photos/600/300?random=2"
+    imageUrl: "https://i.ibb.co/xt2mKSHm/image.png"
   }
 ];
 
@@ -152,7 +140,7 @@ export const CASES_RU: CaseStudy[] = [
       { label: 'Выход', value: '7500 ₽', trend: 'down' }, 
       { label: 'Было', value: '1339 ₽', trend: 'down' }
     ],
-    imageUrl: "https://picsum.photos/600/300?random=24"
+    imageUrl: "https://i.ibb.co/wNpqSN1V/HR.jpg"
   },
   {
     id: '1', 
@@ -167,18 +155,6 @@ export const CASES_RU: CaseStudy[] = [
       { label: 'Лид-магнит', value: '100+', trend: 'up' }
     ],
     imageUrl: "https://i.ibb.co/xt2mKSHm/image.png"
-  },
-  {
-    id: '2', title: 'Масштабирование E-com', niche: 'Fashion',
-    description: 'Вывели локальный бренд одежды на $50k/мес выручки через Telegram Ads.',
-    metrics: [{ label: 'ROAS', value: '450%', trend: 'up' }, { label: 'Лиды', value: '1,200+', trend: 'up' }],
-    imageUrl: "https://picsum.photos/600/300?random=1"
-  },
-  {
-    id: '3', title: 'Запуск EdTech курса', niche: 'Обучение',
-    description: 'Стратегия запуска курса по программированию на Python.',
-    metrics: [{ label: 'Выручка', value: '$120k', trend: 'up' }, { label: 'CAC', value: '$15', trend: 'down' }],
-    imageUrl: "https://picsum.photos/600/300?random=2"
   }
 ];
 
