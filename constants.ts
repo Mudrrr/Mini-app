@@ -95,7 +95,7 @@ export const CASES_EN: CaseStudy[] = [
       { label: 'Cost/Hire', value: '7500 ₽', trend: 'down' },
       { label: 'Old CPL', value: '1339 ₽', trend: 'down' }
     ],
-    imageUrl: "https://i.ibb.co/yFkwM3fk/HR.jpg"
+    imageUrl: "https://i.ibb.co/wNpqSN1V/HR.jpg"
   },
   {
     id: '1', 
