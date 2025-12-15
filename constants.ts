@@ -81,7 +81,7 @@ export const CASES_EN: CaseStudy[] = [
       { label: 'CPL', value: '4265 ₽', trend: 'down' },
       { label: 'CR', value: '1.4%', trend: 'up' }
     ],
-    imageUrl: "https://i.ibb.co/JjXwNzXC/image.jpg"
+    imageUrl: "https://i.ibb.co/SXHnQNFj/image.jpg"
   },
   {
     id: '4',
@@ -126,7 +126,7 @@ export const CASES_RU: CaseStudy[] = [
       { label: 'Цена заявки', value: '4265 ₽', trend: 'down' },
       { label: 'Конверсия', value: '1,4%', trend: 'up' }
     ],
-    imageUrl: "https://i.ibb.co/JjXwNzXC/image.jpg"
+    imageUrl: "https://i.ibb.co/SXHnQNFj/image.jpg"
   },
   {
     id: '4',
