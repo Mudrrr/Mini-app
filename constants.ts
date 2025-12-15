@@ -81,7 +81,7 @@ export const CASES_EN: CaseStudy[] = [
       { label: 'CPL', value: '4265 ₽', trend: 'down' },
       { label: 'CR', value: '1.4%', trend: 'up' }
     ],
-    imageUrl: "https://picsum.photos/600/300?random=50"
+    imageUrl: "https://i.ibb.co/JjXwNzXC/image.jpg"
   },
   {
     id: '4',
