@@ -99,14 +99,14 @@ export const CASES_EN: CaseStudy[] = [
   },
   {
     id: '1', 
-    title: 'Phuket TG Channel Ads', 
+    title: 'Phuket TG Channel', 
     niche: 'Real Estate',
-    description: 'Acquired 234 targeted subscribers at ~$5. Targeted investors and expats via Telegram Ads.',
-    fullStory: "The agency approached us with an existing Telegram channel (420 subscribers). The goal was to attract investors and property buyers in Phuket.\n\nStrategy: We utilized official Telegram Ads, targeting competitor channels and business/investment interest groups.\n\nResult: The channel grew to 750 subscribers. We acquired 234 direct subscribers from ads at ~$5 CPA. Over 100 people downloaded the lead magnet, entering the sales funnel.",
+    description: 'Acquired 234 targeted subscribers at ~471 RUB. Channel grew from 420 to 750.',
+    fullStory: "A real estate agency came with an existing Telegram channel (420 subscribers). Goal: Attract investors.\n\nCurrent status: 750 subscribers. Some came from ads, others cross-posted from Instagram/YouTube.\n\nAd Results:\n— Subscribers: 234\n— CPA: 471.8 RUB (w/ VAT)\n— Spend: 110,400 RUB\n— Lead Magnets: 100+ people\n\nChallenge:\nHow to run the channel so it generates leads, not just reads?\n\nSolution:\nWe tested posts with buttons instead of comments. We create intrigue in the post—giving only partial info about the property—and offer the rest via the button.",
     metrics: [
-      { label: 'Spend', value: '~$1,100', trend: 'up' }, 
+      { label: 'Spend', value: '110k ₽', trend: 'up' }, 
       { label: 'Subs', value: '+234', trend: 'up' },
-      { label: 'CPA', value: '$5.1', trend: 'down' },
+      { label: 'CPA', value: '472 ₽', trend: 'down' },
       { label: 'Leads', value: '100+', trend: 'up' }
     ],
     imageUrl: "https://i.ibb.co/67Hy2SZf/image.jpg"
@@ -144,10 +144,10 @@ export const CASES_RU: CaseStudy[] = [
   },
   {
     id: '1', 
-    title: 'Реклама TG канала Пхукет', 
+    title: 'Пхукет TG канал', 
     niche: 'Недвижимость',
-    description: 'Привлекли 234 целевых подписчика по 471₽. Охват инвесторов и экспатов.',
-    fullStory: "Агентство недвижимости пришло с готовым Telegram-каналом (420 подписчиков). Цель: Привлечение инвесторов и покупателей недвижимости на Пхукете.\n\nСтратегия: Использование официальной рекламы Telegram Ads с таргетингом на каналы конкурентов, каналы про инвестиции и бизнес.\n\nРезультат: В канале уже 750 подписчиков. С рекламы получено 234 подписчика по цене 471,8 ₽ (с НДС). Более 100 человек скачали лид-магнит, попав в воронку прогрева.",
+    description: 'Привлекли 234 подписчика по 471,8 ₽. Рост канала с 420 до 750.',
+    fullStory: "Агентство недвижимости пришло с готовым Telegram-каналом и начальной аудиторией в 420 подписчиков.\nНа момент написания кейса в канале уже 750 подписчиков. Часть аудитории пришла с рекламы, часть перелита из других соцсетей (Instagram, YouTube).\n\nРезультаты с рекламы:\n— Подписчиков: 234\n— Цена подписчика: 471,8 ₽ с НДС\n— Расход: 110 400 ₽ с НДС\n— Забрали лид-магниты: 100+ человек\n\nСложность: \nКак вести канал так, чтобы он не просто рос, а стабильно генерировал заявки?\n\nРешение:\nПротестировали механику постов с кнопкой вместо комментариев. В самом посте даём интригу — только часть информации об объекте, а по кнопке предлагаем получить больше.",
     metrics: [
       { label: 'Расход', value: '110к ₽', trend: 'up' }, 
       { label: 'Подписчики', value: '+234', trend: 'up' },
